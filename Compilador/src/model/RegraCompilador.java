@@ -50,9 +50,7 @@ public class RegraCompilador {
     public void Analisar(List<Palavra> contexto) {
  
         Limpar();
-        
         for (Palavra palavra : contexto) {
-            
             
             reconhecimento = "";
             //Sempre começa no estado Q0.
@@ -69,9 +67,10 @@ public class RegraCompilador {
             
             //Adiciona na lista para ser realizado tratamento em tela!
             arrSaida.add(objSaida);
+            limpaBuffers();
         }
         
-        limpaBuffers();
+        
 
         
 
@@ -405,61 +404,4 @@ public class RegraCompilador {
 
         return true;
     }
-
-    public static void main(String[] args) {
-
-        RegraCompilador regra = new RegraCompilador();
-
-        List<Palavra> letras = new ArrayList<>();
-        
-        Palavra p = new Palavra();
-        p.setLinha(1);
-        p.setPalavra("0#0");
-        letras.add(p);
-      
-        p = new Palavra();
-        p.setLinha(1);
-        p.setPalavra("1#000");
-        letras.add(p);
-        
-        p = new Palavra();
-        p.setLinha(2);
-        p.setPalavra("0100#00");
-        letras.add(p);
-        
-        p = new Palavra();
-        p.setLinha(3);
-        p.setPalavra("00%11");
-        letras.add(p);
-        
-        p = new Palavra();
-        p.setLinha(3);
-        p.setPalavra("+");
-        letras.add(p);
-        
-        p = new Palavra();
-        p.setLinha(3);
-        p.setPalavra(".");
-        letras.add(p);
-
-        p = new Palavra();
-        p.setLinha(3);
-        p.setPalavra(";");
-        letras.add(p);
-        
-        p = new Palavra();
-        p.setLinha(5);
-        p.setPalavra("teste001#");
-        letras.add(p);
-        
-        p = new Palavra();
-        p.setLinha(6);
-        p.setPalavra("10110#000");
-        letras.add(p);
-        
-        
-        regra.Analisar(letras);
-
-    }
-
 }
